@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matheus Corrêa · Desenvolvedor Web</title>
+<meta name="description" content="Desenvolvedor web em Brasília. 8 sites em produção, todos com 100 em acessibilidade no Lighthouse. HTML, CSS, JavaScript e automação em Python.">
+<link rel="canonical" href="https://milhoando-dot.github.io/portfolio/">
+<meta property="og:title" content="Matheus Corrêa · Desenvolvedor Web">
+<meta property="og:description" content="8 sites em produção, todos com 100 em acessibilidade no Lighthouse. HTML, CSS, JavaScript e automação em Python.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://milhoando-dot.github.io/portfolio/">
+<meta property="og:image" content="https://milhoando-dot.github.io/portfolio/img/c-trevi.webp">
+<meta name="theme-color" content="#0a0918">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0918'/><text x='16' y='23' font-family='monospace' font-size='19' font-weight='700' fill='%236ee7d0' text-anchor='middle'>M</text></svg>">
+<link rel="preload" as="image" href="img/c-trevi.webp" fetchpriority="high">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Matheus Corrêa",
+ "jobTitle":"Desenvolvedor Web","email":"matheusmoisesac@gmail.com",
+ "address":{"@type":"PostalAddress","addressLocality":"Brasília","addressRegion":"DF","addressCountry":"BR"},
+ "url":"https://milhoando-dot.github.io/portfolio/",
+ "sameAs":["https://www.linkedin.com/in/matheus-moises-50b01633a","https://github.com/milhoando-dot","https://www.trevistudios.com"],
+ "knowsLanguage":["pt-BR","en"],
+ "knowsAbout":["HTML","CSS","JavaScript","Python","Acessibilidade Web","SEO técnico","Cloudflare Workers"]}
+</script>
+
+<style>
+/* ── A LINGUAGEM DA CASA ─────────────────────────────────────────────────
+   Anton condensado pro display + Work Sans pro corpo, navy profundo e UM
+   momento de gradiente ciano→rosa: é a mesma família visual do
+   trevistudios.com e do deck da Action, que são o piso de qualidade dele.
+   Raio: cartão 16px, botão pílula, imagem 12px. Uma família, travada.    */
+@font-face{font-family:'Anton';src:url('fontes/anton-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Work Sans';src:url('fontes/work-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Work Sans';src:url('fontes/work-sans-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Work Sans';src:url('fontes/work-sans-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Work Sans';src:url('fontes/work-sans-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --fundo:#0a0918; --carta:#131126; --carta2:#181530;
+  --borda:#272345; --borda2:#39335e;
+  --texto:#efedfa; --suave:#aca6cb; --fraco:#948db4;
+  --ciano:#4ddbe8; --rosa:#ff5ea8;
+  --grad:linear-gradient(96deg,#4ddbe8 8%,#a06bff 52%,#ff5ea8 94%);
+  --display:'Anton',system-ui,sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  --lado:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--fundo);color:var(--texto);
+     font-family:'Work Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+     font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:2px solid var(--ciano);outline-offset:3px;border-radius:4px}
+.limite{max-width:1120px;margin:0 auto;padding-left:var(--lado);padding-right:var(--lado)}
+.pular{position:absolute;left:-9999px}
+.pular:focus{left:var(--lado);top:12px;z-index:99;background:var(--ciano);color:#04151a;
+             padding:10px 18px;border-radius:999px;font-weight:600}
+
+/* céu estrelado sutil, fixo e fora do caminho */
+.ceu{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(1px 1px at 12% 18%,#cfc9ff 50%,transparent 51%),
+    radial-gradient(1px 1px at 34% 64%,#cfc9ff 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 58% 32%,#b9b1ee 50%,transparent 51%),
+    radial-gradient(1px 1px at 71% 79%,#cfc9ff 50%,transparent 51%),
+    radial-gradient(1px 1px at 86% 12%,#cfc9ff 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 93% 51%,#b9b1ee 50%,transparent 51%),
+    radial-gradient(1px 1px at 21% 88%,#cfc9ff 50%,transparent 51%),
+    radial-gradient(1px 1px at 47% 8%,#cfc9ff 50%,transparent 51%)}
+
+/* ── topo ── */
+.topo{position:sticky;top:0;z-index:20;background:rgba(10,9,24,.78);
+      backdrop-filter:blur(14px);border-bottom:1px solid var(--borda)}
+.topo .limite{display:flex;align-items:center;justify-content:space-between;gap:14px;height:64px}
+.marca{font-family:var(--mono);font-size:14.5px;font-weight:600}
+.marca span{color:var(--ciano)}
+.topo-dir{display:flex;align-items:center;gap:12px}
+.idioma{display:flex;gap:2px;background:var(--carta);border:1px solid var(--borda);
+        border-radius:999px;padding:3px}
+.idioma button{background:none;border:0;color:var(--suave);font:inherit;font-size:12.5px;
+               font-weight:600;padding:5px 13px;border-radius:999px;cursor:pointer;
+               font-family:var(--mono)}
+.idioma button[aria-pressed="true"]{background:var(--texto);color:#14122a}
+.cv-topo{font-size:13.5px;font-weight:600;text-decoration:none;color:var(--suave);
+         border:1px solid var(--borda);border-radius:999px;padding:8px 16px;
+         transition:color .2s,border-color .2s;white-space:nowrap}
+.cv-topo:hover{color:var(--texto);border-color:var(--borda2)}
+@media(max-width:560px){.cv-topo{display:none}}
+
+/* ── herói ── */
+.heroi{padding-top:clamp(48px,8vw,96px);padding-bottom:clamp(40px,6vw,72px)}
+.heroi-grade{display:grid;gap:clamp(28px,5vw,56px);align-items:center}
+@media(min-width:920px){.heroi-grade{grid-template-columns:minmax(0,11fr) minmax(0,9fr)}}
+.olho{font-family:var(--mono);font-size:12.5px;color:var(--ciano);letter-spacing:.14em;
+      text-transform:uppercase;margin-bottom:22px}
+h1{font-family:var(--display);font-weight:400;text-transform:uppercase;
+   font-size:clamp(46px,6.6vw,84px);line-height:.95;letter-spacing:.005em;
+   text-wrap:balance}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(17px,2.2vw,20px);color:var(--suave);margin-top:26px;max-width:30em;line-height:1.55}
+.sub b{color:var(--texto);font-weight:600}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;
+     font-weight:600;font-size:15.5px;text-decoration:none;border:1px solid transparent;
+     transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.btn:active{transform:scale(.98)}
+.btn svg{width:16px;height:16px;flex:none}
+.btn.cheio{background:var(--grad);color:#140b22;box-shadow:0 8px 28px rgba(160,90,255,.28)}
+.btn.cheio:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(160,90,255,.4)}
+.btn.vazio{border-color:var(--borda2);color:var(--texto);background:rgba(19,17,38,.5)}
+.btn.vazio:hover{transform:translateY(-2px);border-color:var(--fraco)}
+
+/* a janela do herói: screenshot REAL do site principal */
+.janela{border:1px solid var(--borda2);border-radius:16px;overflow:hidden;
+        background:var(--carta);transform:rotate(1.6deg);
+        box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 90px rgba(77,219,232,.09)}
+@media(max-width:919px){.janela{transform:none;max-width:560px}}
+.janela-barra{display:flex;align-items:center;justify-content:center;height:34px;
+              border-bottom:1px solid var(--borda);background:var(--carta2)}
+.janela-barra span{font-family:var(--mono);font-size:11.5px;color:var(--suave);
+                   background:var(--fundo);border:1px solid var(--borda);
+                   border-radius:6px;padding:2px 14px}
+.janela img{aspect-ratio:1280/800;object-fit:cover;object-position:top}
+
+/* ── números ── */
+.numeros{padding-top:clamp(40px,6vw,64px)}
+.numeros ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);
+            border-block:1px solid var(--borda)}
+@media(min-width:760px){.numeros ul{grid-template-columns:repeat(4,1fr)}}
+.numeros li{padding:26px 22px;border-right:1px solid var(--borda)}
+.numeros li:last-child{border-right:0}
+@media(max-width:759px){.numeros li:nth-child(2n){border-right:0}
+                        .numeros li:nth-child(-n+2){border-bottom:1px solid var(--borda)}}
+.numeros b{display:block;font-family:var(--display);font-weight:400;
+           font-size:clamp(36px,5vw,52px);line-height:1;letter-spacing:.01em}
+.numeros li:first-child b{background:var(--grad);-webkit-background-clip:text;
+                          background-clip:text;color:transparent}
+.numeros span{display:block;font-size:13.5px;color:var(--suave);margin-top:9px;line-height:1.4}
+
+/* ── seções ── */
+section{padding-top:clamp(60px,9vw,110px)}
+h2{font-family:var(--display);font-weight:400;text-transform:uppercase;
+   font-size:clamp(30px,4.6vw,48px);line-height:1.02;letter-spacing:.01em}
+.intro{color:var(--suave);margin-top:14px;max-width:38em}
+
+/* ── a parede: marquee de screenshots reais ── */
+.parede{overflow:hidden;margin-top:40px;
+        -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+        mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.trilho{display:flex;gap:22px;width:max-content;padding-block:6px}
+.anima .trilho{animation:rolar 46s linear infinite}
+.parede:hover .trilho{animation-play-state:paused}
+@keyframes rolar{to{transform:translateX(-50%)}}
+.obra{width:min(320px,72vw);flex:none;text-decoration:none;transition:transform .22s ease}
+.obra:hover{transform:translateY(-6px)}
+.obra figure{border:1px solid var(--borda);border-radius:12px;overflow:hidden;
+             background:var(--carta);transition:border-color .22s ease}
+.obra:hover figure{border-color:var(--borda2)}
+.obra img{aspect-ratio:1280/800;object-fit:cover;object-position:top}
+.obra figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+                 padding:11px 4px 0}
+.obra strong{font-size:14.5px;font-weight:600}
+.obra small{font-family:var(--mono);font-size:11px;color:var(--fraco);white-space:nowrap}
+
+/* ── casos ── */
+.casos{display:grid;gap:clamp(22px,3vw,30px);margin-top:42px}
+.caso{background:var(--carta);border:1px solid var(--borda);border-radius:16px;
+      overflow:hidden;display:grid}
+@media(min-width:880px){
+  .caso.par{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .caso.par.inverso .caso-img{order:2}
+}
+.caso-img{position:relative;min-height:240px;border-bottom:1px solid var(--borda)}
+@media(min-width:880px){.caso.par .caso-img{border-bottom:0;border-right:1px solid var(--borda)}
+                        .caso.par.inverso .caso-img{border-right:0;border-left:1px solid var(--borda)}}
+.caso-img-faixa{min-height:0;aspect-ratio:1280/260}
+.caso-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.caso-corpo{padding:clamp(24px,3.6vw,40px)}
+.caso h3{font-family:var(--display);font-weight:400;text-transform:uppercase;
+         font-size:clamp(24px,3vw,32px);letter-spacing:.015em;line-height:1}
+.papel{font-family:var(--mono);font-size:12px;color:var(--fraco);margin-top:9px}
+.caso p.hist{color:var(--suave);margin-top:16px;font-size:15.8px;line-height:1.62}
+.caso p.hist b{color:var(--texto);font-weight:600}
+.medida{display:flex;gap:28px;margin-top:22px;padding-top:20px;border-top:1px solid var(--borda)}
+.medida div b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1}
+.medida div span{font-size:12.5px;color:var(--fraco);display:block;margin-top:5px;line-height:1.35}
+.caso-pe{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--suave);background:var(--fundo);
+     border:1px solid var(--borda);border-radius:6px;padding:4px 10px}
+.abrir{margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--ciano);
+       text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.abrir:hover{text-decoration:underline}
+.abrir svg{width:12px;height:12px}
+.privado{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--fraco)}
+
+/* ── ferramentas ── */
+.ferr{margin-top:clamp(22px,3vw,30px);border:1px solid var(--borda);border-radius:16px;
+      background:linear-gradient(135deg,var(--carta) 55%,rgba(77,219,232,.06));
+      padding:clamp(26px,4vw,44px);display:grid;gap:clamp(20px,4vw,48px)}
+@media(min-width:820px){.ferr{grid-template-columns:auto minmax(0,1fr);align-items:center}}
+.ferr b.gigante{font-family:var(--display);font-weight:400;line-height:.9;
+                font-size:clamp(72px,11vw,132px);
+                background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ferr .leg{font-family:var(--mono);font-size:12px;color:var(--fraco);letter-spacing:.08em;
+           text-transform:uppercase;margin-top:10px;display:block}
+.ferr p{color:var(--suave);font-size:16.5px;line-height:1.65;max-width:34em}
+.ferr p b{color:var(--texto);font-weight:600}
+
+/* ── stack ── */
+.stack{margin-top:38px;border-top:1px solid var(--borda)}
+.linha{display:grid;gap:6px;padding:18px 4px;border-bottom:1px solid var(--borda)}
+@media(min-width:700px){.linha{grid-template-columns:210px minmax(0,1fr);gap:24px;align-items:baseline}}
+.linha dt{font-family:var(--mono);font-size:12.5px;color:var(--ciano);letter-spacing:.06em;
+          text-transform:uppercase}
+.linha dd{font-size:15.6px;color:var(--suave)}
+
+/* ── contato ── */
+.pe{margin-top:clamp(64px,10vw,120px);border-top:1px solid var(--borda);
+    padding-top:clamp(56px,8vw,96px);padding-bottom:46px;position:relative;overflow:hidden}
+.pe::before{content:'';position:absolute;inset:auto -20% -60% -20%;height:70%;
+            background:radial-gradient(ellipse at center,rgba(160,90,255,.16),transparent 70%);
+            pointer-events:none}
+.pe h2{font-size:clamp(40px,7vw,84px)}
+.pe .intro{margin-top:18px}
+.contatos{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.creditos{font-family:var(--mono);font-size:12px;color:var(--fraco);margin-top:52px;line-height:1.8}
+
+/* ── entrada suave, honrando reduced motion ── */
+.rv{opacity:0;transform:translateY(16px)}
+.anima .rv{transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .anima .trilho{animation:none}
+  .parede{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .btn,.obra{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ceu" aria-hidden="true"></div>
+<a class="pular" href="#conteudo" data-i18n="pular">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="limite">
+    <div class="marca">matheus<span>.dev</span></div>
+    <div class="topo-dir">
+      <a class="cv-topo" href="curriculo-pt.pdf" data-cv data-i18n="cvtopo">Currículo em PDF</a>
+      <div class="idioma" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<div class="heroi limite">
+  <div class="heroi-grade">
+    <div>
+      <p class="olho" data-i18n="olho">Brasília · disponível para contratação</p>
+      <h1 data-i18n="h1">Sites rápidos, acháveis e <span class="grad">feitos à mão.</span></h1>
+      <p class="sub" data-i18n="sub">Sou o Matheus. Mantenho <b>8 sites em produção</b> em HTML, CSS e JavaScript puros. O resto eu automatizo em Python.</p>
+      <div class="acoes">
+        <a class="btn cheio" href="mailto:matheusmoisesac@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <span data-i18n="btn1">Fale comigo</span>
+        </a>
+        <a class="btn vazio" href="https://www.linkedin.com/in/matheus-moises-50b01633a">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M2.4 21h5.16V9.4H2.4zm7.9 0h5.15v-6.3c0-3.36 4.35-3.63 4.35 0V21H25v-8.1c0-6.9-7.6-6.65-9.55-3.25V9.4h-5.15z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+    <a class="janela rv" href="https://www.trevistudios.com" aria-label="Abrir trevistudios.com">
+      <div class="janela-barra"><span>trevistudios.com</span></div>
+      <img src="img/c-trevi.webp" width="1100" height="688" alt="O site da Trevi Studios no ar: herói synthwave escuro com o título Your Business Deserves To Be Seen" fetchpriority="high">
+    </a>
+  </div>
+
+  <div class="numeros rv">
+    <ul>
+      <li><b>8</b><span data-i18n="n1">sites em produção, no ar agora</span></li>
+      <li><b>100</b><span data-i18n="n2">de acessibilidade no Lighthouse, nos 8</span></li>
+      <li><b>1.442</b><span data-i18n="n3">sites auditados por ferramenta própria</span></li>
+      <li><b>30</b><span data-i18n="n4">certificações do Google</span></li>
+    </ul>
+  </div>
+</div>
+
+<section aria-labelledby="t-parede">
+  <div class="limite">
+    <h2 id="t-parede" class="rv" data-i18n="h2a">Os nove, no ar agora</h2>
+    <p class="intro rv" data-i18n="i1">Screenshot real, tirado hoje. Cada card abre o site publicado.</p>
+  </div>
+  <div class="parede">
+    <div class="trilho">
+      <a class="obra" href="https://trevi-demo-motors.trevistudios.workers.dev/"><figure><img src="img/t-vettor.webp" width="560" height="350" alt="Site de loja de carros Vettor Motors" loading="lazy"><figcaption><strong data-i18n="ob9">Loja de carros</strong><small>demo feita em 1h · estoque, simulador e consignação</small></figcaption></figure></a>
+      <a class="obra" href="https://www.trevistudios.com/"><figure><img src="img/t-trevi.webp" width="560" height="350" alt="Site da Trevi Studios" loading="lazy"><figcaption><strong>Trevi Studios</strong><small>trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://salao.trevistudios.com/"><figure><img src="img/t-salao.webp" width="560" height="350" alt="Site de salão de beleza Lustre" loading="lazy"><figcaption><strong data-i18n="ob2">Salão</strong><small>salao.trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://store.trevistudios.com/"><figure><img src="img/t-store.webp" width="560" height="350" alt="E-commerce Helix" loading="lazy"><figcaption><strong>E-commerce</strong><small>store.trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://restaurant.trevistudios.com/"><figure><img src="img/t-restaurant.webp" width="560" height="350" alt="Site de restaurante Bella Vista" loading="lazy"><figcaption><strong data-i18n="ob4">Restaurante</strong><small>restaurant.trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://realestate.trevistudios.com/"><figure><img src="img/t-realestate.webp" width="560" height="350" alt="Site imobiliário Meridian" loading="lazy"><figcaption><strong data-i18n="ob5">Imobiliária</strong><small>realestate.trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://spa.trevistudios.com/"><figure><img src="img/t-spa.webp" width="560" height="350" alt="Site de spa Seraphine" loading="lazy"><figcaption><strong>Spa</strong><small>spa.trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://landscaping.trevistudios.com/"><figure><img src="img/t-landscaping.webp" width="560" height="350" alt="Site de paisagismo Cedar Vale" loading="lazy"><figcaption><strong data-i18n="ob7">Paisagismo</strong><small>landscaping.trevistudios.com</small></figcaption></figure></a>
+      <a class="obra" href="https://petshop.trevistudios.com/"><figure><img src="img/t-petshop.webp" width="560" height="350" alt="Site de petshop Barkley" loading="lazy"><figcaption><strong>Petshop</strong><small>petshop.trevistudios.com</small></figcaption></figure></a>
+    </div>
+  </div>
+</section>
+
+<section class="limite" aria-labelledby="t-casos">
+  <h2 id="t-casos" class="rv" data-i18n="h2b">Três projetos, por dentro</h2>
+  <p class="intro rv" data-i18n="i2">O problema, o que eu construí e o número que ficou. Nada aqui é mockup.</p>
+
+  <div class="casos">
+
+    <article class="caso par rv">
+      <div class="caso-img"><picture><source media="(min-width:880px)" srcset="img/c-trevi-sq.webp"><img src="img/c-trevi.webp" width="1100" height="688" alt="Herói do site da Trevi Studios" loading="lazy"></picture></div>
+      <div class="caso-corpo">
+        <h3>Trevi Studios</h3>
+        <p class="papel" data-i18n="p1p">Fundador e desenvolvedor · desde 2026</p>
+        <p class="hist" data-i18n="p1a">Negócio local sem site perde cliente pro concorrente que aparece no Google. Fundei um estúdio pra resolver isso e construí <b>o site da marca mais 7 modelos de nicho</b>, tudo em HTML, CSS e JavaScript puros, sem framework e sem build, com i18n em três idiomas e herói animado em Canvas.</p>
+        <div class="medida">
+          <div><b>8</b><span data-i18n="p1m1">sites no ar</span></div>
+          <div><b>100</b><span data-i18n="p1m2">acessibilidade no Lighthouse, nos 8</span></div>
+          <div><b>3</b><span data-i18n="p1m3">idiomas, com i18n próprio</span></div>
+        </div>
+        <div class="caso-pe">
+          <span class="tag">JavaScript ES6+</span><span class="tag">Canvas</span><span class="tag">i18n</span><span class="tag">JSON-LD</span>
+          <a class="abrir" href="https://www.trevistudios.com">trevistudios.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="caso par inverso rv">
+      <div class="caso-img"><picture><source media="(min-width:880px)" srcset="img/c-cleanin-sq.webp"><img src="img/c-cleanin.webp" width="1100" height="688" alt="Site da Clean-in, empresa de limpeza na Flórida" loading="lazy"></picture></div>
+      <div class="caso-corpo">
+        <h3>Clean-in</h3>
+        <p class="papel" data-i18n="p2p">Sócio, frente técnica · Flórida, EUA</p>
+        <p class="hist" data-i18n="p2a">A operação vivia numa plataforma paga, com página pesada e difícil de indexar. Refiz o site inteiro em <b>HTML estático no GitHub Pages</b>, com HTTPS e domínio próprio, e a mensalidade da plataforma foi cancelada.</p>
+        <div class="medida">
+          <div><b>99</b><span data-i18n="p2m1">performance no Lighthouse mobile</span></div>
+          <div><b>R$ 0</b><span data-i18n="p2m2">de custo de plataforma depois da troca</span></div>
+        </div>
+        <div class="caso-pe">
+          <span class="tag">HTML5</span><span class="tag">GitHub Pages</span><span class="tag">DNS</span>
+          <a class="abrir" href="https://getclean-in.com/">getclean-in.com
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="caso rv">
+      <div class="caso-img caso-img-faixa">
+        <img src="img/c-trevdev.webp" width="1100" height="223" alt="Trevdev: painel interno com saudação e busca" loading="lazy">
+      </div>
+      <div class="caso-corpo">
+        <h3>Trevdev</h3>
+        <p class="papel" data-i18n="p3p">Aplicação interna · acesso restrito por senha</p>
+        <p class="hist" data-i18n="p3a">O conhecimento da operação vivia em Markdown no repositório, e Markdown não abre no celular. Escrevi um <b>gerador em Python</b> que transforma esses documentos num site com busca, trilha de navegação e autenticação, publicado em Cloudflare Workers a cada push. A primeira tela é calculada a partir de dados medidos, então ela não envelhece sozinha.</p>
+        <div class="medida">
+          <div><b>131</b><span data-i18n="p3m1">páginas geradas a partir de Markdown</span></div>
+          <div><b>0</b><span data-i18n="p3m2">páginas escritas à mão</span></div>
+        </div>
+        <div class="caso-pe">
+          <span class="tag">Python</span><span class="tag">Cloudflare Workers</span><span class="tag">KV</span><span class="tag">CI/CD</span>
+          <span class="privado" data-i18n="p3l">uso interno, sem link público</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="ferr rv">
+    <div><b class="gigante">1.442</b><span class="leg" data-i18n="f0">sites auditados</span></div>
+    <p data-i18n="f1">Julgar a qualidade de centenas de sites no olho não escala, e a tela esconde defeito de acessibilidade e de indexação. Escrevi <b>85 ferramentas de linha de comando</b> em Python e Node que rodam Lighthouse em fila e varrem cada página com Playwright atrás de erro de console, link quebrado e rolagem lateral. O resultado vira relatório e fila de prioridade, sozinho.</p>
+  </div>
+</section>
+
+<section class="limite" aria-labelledby="t-stack">
+  <h2 id="t-stack" class="rv" data-i18n="h2c">O que eu uso todo dia</h2>
+  <dl class="stack rv">
+    <div class="linha"><dt>Front-end</dt><dd data-i18n="s1d">HTML5, CSS3 (Grid, Flexbox, animação), JavaScript ES6+, Canvas, i18n, design responsivo</dd></div>
+    <div class="linha"><dt data-i18n="s2">Back-end e dados</dt><dd data-i18n="s2d">Python, SQL, APIs REST, integração com modelos de linguagem, Markdown</dd></div>
+    <div class="linha"><dt data-i18n="s3">Infra e deploy</dt><dd>Git, GitHub Actions (CI/CD), Cloudflare Workers, Vercel, GitHub Pages, DNS, Bash, Linux</dd></div>
+    <div class="linha"><dt data-i18n="s4">Qualidade</dt><dd data-i18n="s4d">Lighthouse, Core Web Vitals, WCAG, SEO técnico, JSON-LD, Playwright, Search Console</dd></div>
+    <div class="linha"><dt data-i18n="s5">Segurança</dt><dd data-i18n="s5d">NIST CSF, análise de logs, Wireshark, tcpdump, CSP e HSTS</dd></div>
+    <div class="linha"><dt data-i18n="s6">Idiomas</dt><dd data-i18n="s6d">Português nativo · Inglês bilíngue, certificado pela Pearson</dd></div>
+  </dl>
+</section>
+
+</main>
+
+<footer class="pe">
+  <div class="limite">
+    <h2 data-i18n="h2d">Procurando um dev? <span class="grad">Vamos conversar.</span></h2>
+    <p class="intro" data-i18n="i3">Brasília, remoto no Brasil ou remoto internacional. Respondo no mesmo dia.</p>
+    <div class="contatos">
+      <a class="btn cheio" href="mailto:matheusmoisesac@gmail.com">matheusmoisesac@gmail.com</a>
+      <a class="btn vazio" href="https://wa.me/5561982832037">WhatsApp</a>
+      <a class="btn vazio" href="https://github.com/milhoando-dot">GitHub</a>
+      <a class="btn vazio" href="curriculo-pt.pdf" data-cv><span data-i18n="cvpe">Currículo em PDF</span></a>
+    </div>
+    <p class="creditos" data-i18n="cred">Feito à mão em HTML, CSS e JavaScript. Sem framework, sem build, sem rastreador.<br>© 2026 Matheus Corrêa · Brasília, DF</p>
+  </div>
+</footer>
+
+<script>
+/* ── i18n: o PT vive no HTML (a página funciona sem JS); o EN vem daqui ── */
+const EN = {
+  pular:"Skip to content",
+  cvtopo:"Résumé (PDF)", cvpe:"Résumé (PDF)",
+  olho:"Brasília, Brazil · open to work",
+  h1:'Fast, findable, <span class="grad">handmade websites.</span>',
+  sub:"I'm Matheus. I maintain <b>8 production websites</b> in plain HTML, CSS and JavaScript. The rest I automate in Python.",
+  btn1:"Get in touch",
+  s1d:"HTML5, CSS3 (Grid, Flexbox, animation), JavaScript ES6+, Canvas, i18n, responsive design",
+  s2d:"Python, SQL, REST APIs, LLM integration, Markdown",
+  s4d:"Lighthouse, Core Web Vitals, WCAG, technical SEO, JSON-LD, Playwright, Search Console",
+  s5d:"NIST CSF, log analysis, Wireshark, tcpdump, CSP and HSTS",
+  n1:"production websites, live right now",
+  n2:"Lighthouse accessibility, on all 8",
+  n3:"websites audited by my own tooling",
+  n4:"Google certifications",
+  h2a:"All nine, live right now",
+  ob9:"Car dealership",
+  i1:"Real screenshots, taken today. Every card opens the published site.",
+  ob2:"Hair salon", ob4:"Restaurant", ob5:"Real estate", ob7:"Landscaping",
+  h2b:"Three projects, up close",
+  i2:"The problem, what I built, and the number that stayed. Nothing here is a mockup.",
+  p1p:"Founder and developer · since 2026",
+  p1a:"A local business without a website loses customers to whichever competitor shows up on Google. I founded a studio to fix that and built <b>the brand site plus 7 niche templates</b>, all in plain HTML, CSS and JavaScript, no framework, no build step, with trilingual i18n and a Canvas-animated hero.",
+  p1m1:"websites live", p1m2:"Lighthouse accessibility, on all 8", p1m3:"languages, hand-rolled i18n",
+  p2p:"Partner, technical lead · Florida, USA",
+  p2a:"The operation ran on a paid platform, with a heavy page that was hard to index. I rebuilt the whole site in <b>static HTML on GitHub Pages</b>, with HTTPS and a custom domain, and the platform subscription was cancelled.",
+  p2m1:"Lighthouse mobile performance", p2m2:"platform cost after the switch",
+  p3p:"Internal application · password protected",
+  p3a:"The operation's knowledge lived in Markdown files, and Markdown doesn't open on a phone. I wrote a <b>Python generator</b> that turns those documents into a site with search, breadcrumbs and authentication, deployed to Cloudflare Workers on every push. The home screen is computed from measured data, so it can't quietly go stale.",
+  p3m1:"pages generated from Markdown", p3m2:"pages written by hand",
+  p3l:"internal use, no public link",
+  f0:"websites audited",
+  f1:"Judging hundreds of websites by eye doesn't scale, and the screen hides accessibility and indexing defects. I wrote <b>85 command-line tools</b> in Python and Node that queue Lighthouse runs and sweep every page with Playwright for console errors, broken links and horizontal scroll. The output becomes a report and a priority queue, on its own.",
+  h2c:"What I use every day",
+  s2:"Back-end & data", s3:"Infra & deploy", s4:"Quality", s5:"Security",
+  s6:"Languages", s6d:"Portuguese (native) · English (fully bilingual, Pearson certified)",
+  h2d:'Hiring a dev? <span class="grad">Let&#39;s talk.</span>',
+  i3:"Brasília, remote in Brazil, or remote international. I reply the same day.",
+  cred:"Hand-written in HTML, CSS and JavaScript. No framework, no build, no trackers.<br>© 2026 Matheus Corrêa · Brasília, Brazil"
+};
+const PT = {};
+document.querySelectorAll('[data-i18n]').forEach(el => PT[el.dataset.i18n] = el.innerHTML);
+
+function trocar(lang){
+  const dic = lang === 'en' ? EN : PT;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const t = dic[el.dataset.i18n];
+    if (t !== undefined) el.innerHTML = t;
+  });
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+  document.querySelectorAll('.idioma button').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  document.querySelectorAll('[data-cv]').forEach(a =>
+    a.setAttribute('href', lang === 'en' ? 'curriculo-en.pdf' : 'curriculo-pt.pdf'));
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+document.querySelectorAll('.idioma button').forEach(b =>
+  b.addEventListener('click', () => trocar(b.dataset.lang)));
+
+/* escolha guardada primeiro; só depois o idioma do navegador */
+let inicial = null;
+try { inicial = localStorage.getItem('lang'); } catch (e) {}
+if (!inicial) inicial = (navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+if (inicial === 'en') trocar('en');
+
+/* ── marquee: duplica o trilho pra rolagem infinita (só com movimento ligado) ── */
+const menos = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const trilho = document.querySelector('.trilho');
+if (!menos && trilho) {
+  const originais = trilho.children.length;
+  trilho.innerHTML += trilho.innerHTML;
+  [...trilho.children].forEach((a, i) => {
+    if (i >= originais) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
+  });
+}
+
+/* ── entrada suave; com reduced motion tudo já nasce visível ── */
+if (!menos && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('anima');
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('on'));
+}
+</script>
+
+</body>
+</html>
